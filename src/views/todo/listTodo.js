@@ -1,5 +1,6 @@
 import React from "react";
 import "./listTodo.scss"
+import AddTodo from "./addTodo";
 
 class listTodo extends React.Component{
     state = {
@@ -10,16 +11,19 @@ class listTodo extends React.Component{
         ]
     }
 
-    handleList
+    handleAddTodo=(todo)=>{
+        this.setState(
+            {
+                listTodo: [...this.state.listTodo, todo]
+            }
+        )
+    }
 
     render(){
         return(
             <div className="contener">
-                <div className="add-todo">
-                    <input type="text"></input>
-                    <button>add</button>
-                </div>
                 <div className="list-content">
+                    <AddTodo handleAddTodo={this.handleAddTodo}/>
                     {this.state.listTodo != null && this.state.listTodo.length > 0 &&
                         this.state.listTodo.map((item, index) => {
                             return(
