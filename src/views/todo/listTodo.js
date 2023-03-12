@@ -14,6 +14,7 @@ class listTodo extends React.Component{
     handleAddTodo=(todo)=>{
         this.setState(
             {
+                id: id,
                 listTodo: [...this.state.listTodo, todo]
             }
         )
@@ -23,7 +24,9 @@ class listTodo extends React.Component{
         return(
             <div className="contener">
                 <div className="list-content">
-                    <AddTodo handleAddTodo={this.handleAddTodo}/>
+                    <AddTodo handleAddTodo={this.handleAddTodo}
+                        id={this.state.id}
+                    />
                     {this.state.listTodo != null && this.state.listTodo.length > 0 &&
                         this.state.listTodo.map((item, index) => {
                             return(
